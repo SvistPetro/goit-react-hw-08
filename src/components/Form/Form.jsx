@@ -1,13 +1,13 @@
 import { useState } from 'react'
-import { useSelector, useDispatch } from 'react-redux'
-import { addContact } from '../../redux/contacts/operations'
-import { selectContactList } from '../../redux/contacts/selectors'
+// import { useSelector, useDispatch } from 'react-redux'
+// import { addContact } from '../../redux/contacts/operations'
+// import { selectContactList } from '../../redux/contacts/selectors'
 import css from './Form.module.css'
-import { nanoid } from 'nanoid'
+// import { nanoid } from 'nanoid'
 
 const Form = () => {
-    const dispatch = useDispatch();
-    const contacts = useSelector(selectContactList);
+    // const dispatch = useDispatch();
+    // const contacts = useSelector(selectContactList);
     const [name, setName] = useState('');
     const [phone, setPhone] = useState('');
 
@@ -30,25 +30,25 @@ const Form = () => {
 
     const onSubmitForm = (event) => {
         event.preventDefault();
-        const id = nanoid().toString();
-        const formName = name.trim().toString();
-        const formPhone = phone.trim().toString();
-        const finalFormData = {id, name: formName, phone: formPhone};
+        // // const id = nanoid().toString();
+        // // const formName = name.trim().toString();
+        // // const formPhone = phone.trim().toString();
+        // // const finalFormData = {id, name: formName, phone: formPhone};
 
-        const duplicate = contacts.some(contact => contact.name.toLowerCase() === formName.toLowerCase());
-        if(duplicate) {
-          alert(`${formName} is already in contacts`);
-          return;
-        }
+        // const duplicate = contacts.some(contact => contact.name.toLowerCase() === formName.toLowerCase());
+        // if(duplicate) {
+        //   alert(`${formName} is already in contacts`);
+        //   return;
+        // }
 
-        dispatch(addContact(finalFormData));
-        reset();
+        // // dispatch(addContact(finalFormData));
+        // reset();
     }
 
-    const reset = () => {
-        setName('');
-        setPhone('');
-    }
+    // const reset = () => {
+    //     setName('');
+    //     setPhone('');
+    // }
 
     return (
         <form className={css.form} onSubmit={onSubmitForm}>
